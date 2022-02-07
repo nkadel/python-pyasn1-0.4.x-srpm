@@ -6,7 +6,7 @@
 LANG=C
 
 MOCKS+=fedora-35-x86_64
-MOCKS+=centos+epel-8-x86_64
+MOCKS+=centos-stream+epel-8-x86_64
 #MOCKS+=centos+epel-7-x86_64
 
 MOCKCFGS+=$(MOCKS)
