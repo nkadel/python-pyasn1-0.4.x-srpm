@@ -12,6 +12,8 @@ Source1:        https://github.com/etingof/pyasn1-modules/archive/v%{modules_ver
 URL:            http://pyasn1.sourceforge.net/
 BuildArch:      noarch
 
+BuildRequires:  python3-rpm-macros
+
 %description
 This is an implementation of ASN.1 types and codecs in the Python programming
 language.
