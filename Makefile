@@ -5,14 +5,14 @@
 # Assure that sorting is case sensitive
 LANG=C
 
-#MOCKS+=fedora-35-x86_64
+#MOCKS+=fedora-36-x86_64
+#MOCKS+=centos-stream+epel-9-x86_64
 MOCKS+=centos-stream+epel-8-x86_64
-#MOCKS+=centos+epel-7-x86_64
 
 MOCKCFGS+=$(MOCKS)
-MOCKCFGS+=samba4repo-f35-x86_64
+#MOCKCFGS+=samba4repo-f36-x86_64
+#MOCKCFGS+=samba4repo-9-x86_64
 MOCKCFGS+=samba4repo-8-x86_64
-#MOCKCFGS+=samba4repo-7-x86_64
 
 #REPOBASEDIR=/var/www/linux/samba4repo
 REPOBASEDIR:=`/bin/pwd`/../samba4repo
@@ -62,10 +62,10 @@ install:: $(MOCKS)
 	    case $$repo in \
 		amazonlinux-2-x86_64) yumrelease=amazon/2; yumarch=x86_64; ;; \
 		*-amz2-x86_64) yumrelease=amazon/2; yumarch=x86_64; ;; \
-		*-7-x86_64) yumrelease=el/7; yumarch=x86_64; ;; \
 		*-8-x86_64) yumrelease=el/8; yumarch=x86_64; ;; \
-		*-35-x86_64) yumrelease=fedora/35; yumarch=x86_64; ;; \
-		*-f35-x86_64) yumrelease=fedora/35; yumarch=x86_64; ;; \
+		*-9-x86_64) yumrelease=el/9; yumarch=x86_64; ;; \
+		*-36-x86_64) yumrelease=fedora/36; yumarch=x86_64; ;; \
+		*-f36-x86_64) yumrelease=fedora/36; yumarch=x86_64; ;; \
 		*-rawhide-x86_64) yumrelease=fedora/rawhide; yumarch=x86_64; ;; \
 		*) echo "Unrecognized release for $$repo, exiting" >&2; exit 1; ;; \
 	    esac; \
