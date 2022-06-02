@@ -3,7 +3,7 @@
 
 Name:           python-pyasn1
 Version:        0.4.8
-#Release:        8%{?dist}
+#Release:        8%%{?dist}
 Release:        0.8%{?dist}
 Summary:        ASN.1 tools for Python
 License:        BSD
@@ -12,34 +12,34 @@ Source1:        https://github.com/etingof/pyasn1-modules/archive/v%{modules_ver
 URL:            http://pyasn1.sourceforge.net/
 BuildArch:      noarch
 
-BuildRequires:  python3-rpm-macros
+BuildRequires:  python%{python3_pkgversion}-rpm-macros
 
 %description
 This is an implementation of ASN.1 types and codecs in the Python programming
 language.
 
-%package -n python3-pyasn1
+%package -n python%{python3_pkgversion}-pyasn1
 Summary:    ASN.1 tools for Python 3
-%{?python_provide:%python_provide python3-pyasn1}
-BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
+%{?python_provide:%python_provide python%{python3_pkgversion}-pyasn1}
+BuildRequires:  python%{python3_pkgversion}-devel
+BuildRequires:  python%{python3_pkgversion}-setuptools
 
-%description -n python3-pyasn1
+%description -n python%{python3_pkgversion}-pyasn1
 This is an implementation of ASN.1 types and codecs in the Python 3 programming
 language.
 
-%package -n python3-pyasn1-modules
+%package -n python%{python3_pkgversion}-pyasn1-modules
 Summary:    Modules for pyasn1
-Requires:   python3-pyasn1 >= 0.4.7, python3-pyasn1 < 0.6.0
-%{?python_provide:%python_provide python3-modules}
+Requires:   python%{python3_pkgversion}-pyasn1 >= 0.4.7, python%{python3_pkgversion}-pyasn1 < 0.6.0
+%{?python_provide:%python_provide python%{python3_pkgversion}-modules}
 
-%description -n python3-pyasn1-modules
-ASN.1 types modules for python3-pyasn1.
+%description -n python%{python3_pkgversion}-pyasn1-modules
+ASN.1 types modules for python%{python3_pkgversion}-pyasn1.
 
 %package doc
 Summary:        Documentation for pyasn1
 BuildRequires:  make
-BuildRequires:  python3-sphinx
+BuildRequires:  python%{python3_pkgversion}-sphinx
 
 %description doc
 %{summary}.
@@ -73,13 +73,13 @@ popd
 PYTHONPATH=%{buildroot}%{python3_sitelib} %{__python3} setup.py test
 
 
-%files -n python3-pyasn1
+%files -n python%{python3_pkgversion}-pyasn1
 %doc README.md
 %license LICENSE.rst
 %{python3_sitelib}/%{module}
 %{python3_sitelib}/%{module}-%{version}-*.egg-info/
 
-%files -n python3-pyasn1-modules
+%files -n python%{python3_pkgversion}-pyasn1-modules
 %{python3_sitelib}/%{module}_modules/
 %{python3_sitelib}/%{module}_modules-%{modules_version}-*.egg-info/
 
