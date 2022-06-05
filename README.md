@@ -1,7 +1,7 @@
 python-pyasn1-0.4.x-srpm
 ========================
 
-SRPM building tools for ython-pyyasn1
+SRPM building tools for python-pyasn1
 
 These are built from Fedora rawhide releases..
 
