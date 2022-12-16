@@ -12,7 +12,8 @@ Source1:        https://github.com/etingof/pyasn1-modules/archive/v%{modules_ver
 URL:            http://pyasn1.sourceforge.net/
 BuildArch:      noarch
 
-BuildRequires:  python%{python3_pkgversion}-rpm-macros
+BuildRequires:  python%%{python3_pkgversion}-rpm-macros
+BuildRequires:  %{_bindir}/sphinx-build-3
 
 %description
 This is an implementation of ASN.1 types and codecs in the Python programming
@@ -56,9 +57,9 @@ pushd ../pyasn1-modules-%{modules_version}
 %py3_build
 popd
 
-pushd docs
-PYTHONPATH=%{buildroot}%{python3_sitelib} make SPHINXBUILD=sphinx-build-3 html
-popd
+#pushd docs
+#PYTHONPATH=%{buildroot}%{python3_sitelib} make SPHINXBUILD=sphinx-build-3 html
+#popd
 
 
 %install
@@ -85,7 +86,7 @@ PYTHONPATH=%{buildroot}%{python3_sitelib} %{__python3} setup.py test
 
 %files doc
 %license LICENSE.rst
-%doc docs/build/html/*
+#%%doc docs/build/html/*
 
 %changelog
 * Fri Jan 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.8-8
